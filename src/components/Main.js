@@ -1,12 +1,19 @@
+import {Routes, Route} from "react-router-dom"
+import ItemListContainer from './ItemListContainer'
+import ItemDetailContainer from './ItemDetailContainer'
+import Item from './Item'
+import HomeContainer from './HomeContainer'
+import Cart from './Cart'
+
 const Main = () => {
     return ( 
         <main className="main">
-<div className="main__img">
-<img src="img/mainimg.png" alt="" />
-</div>
-<div className="main__title">
-nxde
-</div>
+        <Routes>
+        <Route path="/" element={ <HomeContainer/> } />
+        <Route path="/checkout" element={ <Cart /> } />
+        <Route path="/shop/:id" element={ <ItemListContainer/> } />
+        <Route path="/shop/item/:id" element={ <ItemDetailContainer/> } />
+        </Routes>
         </main>
     )
 }
