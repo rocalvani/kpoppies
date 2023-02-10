@@ -1,32 +1,53 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import LoaderContainer from "./LoaderContainer";
+import { useNavigate } from "react-router-dom";
+
+import { collection, getDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const ItemDetailContainer = () => {
+  const [carga, setCarga] = useState(false);
+  const [album, setAlbum] = useState({});
+  const params = useParams();
 
-    const [carga, setCarga] = useState(false);
-    const [shop, setShop] = useState([]);
-    const params = useParams()
+  const navigate = useNavigate();
 
-    useEffect(() => {
-         fetch("../../json/data.json")
+  useEffect(() => {
+    const shopCollection = collection(db, "shop");
+    const ref = doc(shopCollection, params.id);
+
+    const prod = getDoc(ref);
+
+    prod
       .then((res) => {
-        const shop = res.json()
-        return shop
+        const album = res.data();
+        setAlbum(album);
+        setCarga(true);
       })
-      .then((shop) => {
-          setShop(shop);
-          setCarga(true);
-      })
-    }, []);
+      .catch((res) => {
+        navigate("/404");
+      });
+  }, []);
 
-      let found = shop.find(el => el.id == params.id);
-
-    return (
-        <div className="item">
-           { !carga ? "Cargando" : <ItemDetail name={found.nombre} img={found.img} idol={found.idol} price={found.precio} />}
-        </div>
-    )
-}
+  return (
+    <div className="item">
+      {!carga ? (
+        <LoaderContainer msg="estás más cerca que nunca" />
+      ) : (
+        <ItemDetail
+          name={album.nombre}
+          img={album.img}
+          idol={album.idol}
+          price={album.precio}
+          id={params.id}
+          version={album.versión}
+          stock={album.stock}
+        />
+      )}
+    </div>
+  );
+};
 
 export default ItemDetailContainer;

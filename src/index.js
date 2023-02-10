@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import './firebase';
+
 import App from './components/App';
 import './index.scss'
 
