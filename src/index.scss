@@ -1088,3 +1088,12 @@
   font-family: poppins;
   font-size: 0.8rem;
 }
+
+@media (min-width: 1920px) {
+  .header {
+    width: 5%;
+  }
+  .main {
+    margin-left: 5%;
+  }
+}

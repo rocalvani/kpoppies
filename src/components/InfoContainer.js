@@ -165,9 +165,9 @@ const InfoContainer = () => {
             ) : (
               <select id="payment" name="cars" onChange={handleChangePayment}>
                 <option value="select">elegí una opción</option>
-                <option value="three">3 pagos de ${totalPrice / 3} </option>
-                <option value="six">6 pagos de ${totalPrice / 6} </option>
-                <option value="twelve">12 pagos de ${totalPrice / 12} </option>
+                <option value="three">3 pagos de ${parseInt(totalPrice / 3)} </option>
+                <option value="six">6 pagos de ${parseInt(totalPrice / 6)} </option>
+                <option value="twelve">12 pagos de ${parseInt(totalPrice / 12)} </option>
               </select>
             )}
           </div>
