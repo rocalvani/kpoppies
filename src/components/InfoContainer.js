@@ -100,9 +100,10 @@ const InfoContainer = () => {
       <Total total={totalPrice} />
       <div className="main__cart--data">
         <h3>tus datos</h3>
-        <form action="">
+      <div className="main__cart--form">
+      <form action="">
           <label>Mail</label>
-          <input type="text" placeholder="Mail" onChange={handleChangeEmail} />
+          <input type="email" placeholder="Mail" onChange={handleChangeEmail} />
 
           <label>
             Nombre y apellido <span>*</span>
@@ -194,6 +195,7 @@ const InfoContainer = () => {
             </div>
           </div>
         </form>
+      </div>
       </div>
       <button
         onClick={handleclick}

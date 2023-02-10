@@ -24,7 +24,7 @@
 
 .header {
   font-family: poppins;
-  width: 5.5rem;
+  width: 6vw;
   height: 100vh;
   border-right: 1px solid #cccccc;
   display: flex;
@@ -36,17 +36,17 @@
   z-index: 99;
   background-color: white;
   &__img {
-    height: 25vh;
-    width: 5.5rem;
     text-align: center;
+    margin-bottom: 25%;
+    height: 20%;
     img {
-      width: 5vh;
+      height: 100%;
       filter: invert(93%) sepia(10%) saturate(0%) hue-rotate(257deg)
         brightness(91%) contrast(81%);
     }
   }
   &__buttons {
-    height: 50vh;
+    height: 70%;
   }
   &__links {
     a {
@@ -128,7 +128,7 @@
 // MAIN + HOME
 
 #container {
-  width: calc(100vw - 5rem);
+  width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -149,7 +149,7 @@
   height: 100vh;
   width: 100%;
   position: relative;
-  margin-left: 5rem;
+  margin-left: 6%;
   &__sparkle {
     position: absolute;
     z-index: 99;
@@ -401,10 +401,14 @@
     }
   }
   &__cart {
-    width: 95vw;
-    padding: 7% 10%;
+    width: 100%;
+    
     display: flex;
     height: 100vh;
+    &--container {
+      display: flex;
+      margin: 7% 10%;
+    }
     &--cart {
       width: 60%;
       border: 1px solid #ccc;
@@ -468,30 +472,40 @@
       border: 1px solid #ccc;
       font-family: poppins;
       position: relative;
+      height: 100%;
     }
     &--total {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #ccc;
-      padding: 8.7%;
+      height: 5.9rem;
+      align-items: center;
+      padding: 0% 8%;
     }
     &--data {
       padding: 5% 8%;
+      height: calc(100% - 5.9rem);
       input {
         text-transform: uppercase;
         font-size: 0.7rem;
-        padding: 0.4rem;
+        padding: 0.3rem;
         width: 100%;
         transition: 1s;
       }
       label {
         width: 100%;
         text-transform: uppercase;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
+        line-height: 0.6rem;
         span {
           color: red;
         }
       }
+    }
+    &--form {
+      overflow: auto;
+      height: 80%;
+      
     }
     &--input {
       display: flex;
@@ -504,7 +518,7 @@
       select {
         width: 50%;
         font-family: poppins;
-        padding: 0.4rem;
+        padding: 0.3rem;
         font-size: 0.7rem;
         text-transform: uppercase;
         &:nth-child(1) {
@@ -916,7 +930,7 @@
 
 .item {
   padding: 5rem;
-  width: 94.5vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   &__container {
@@ -1064,6 +1078,10 @@
 
 .Toastify__progress-bar-theme--light {
   background: black;
+}
+
+.Toastify__progress-bar-theme--dark {
+  background: rgb(132, 198, 209);
 }
 
 .Toastify__toast-body {

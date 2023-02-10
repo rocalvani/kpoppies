@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import AddItemButton from "./AddItemButton";
 
-const ItemCount = ({ onAdd, amount, stock, id }) => {
+const ItemCount = ({ onAdd, amount, stock}) => {
   const [counter, setCounter] = useState(amount);
   const params = useParams();
 
@@ -24,9 +25,6 @@ const ItemCount = ({ onAdd, amount, stock, id }) => {
     }
   };
 
-  const handleConfirm = () => {
-    onAdd(counter);
-  };
 
   const plus = () => {
     if (stock == counter) {
@@ -85,13 +83,8 @@ const ItemCount = ({ onAdd, amount, stock, id }) => {
               +
             </button>
           </div>
-          <button
-            onClick={handleConfirm}
-            className="item__count--add"
-            disabled={disable}
-          >
-            confirmar
-          </button>
+          
+          <AddItemButton onAdd={onAdd} disabled={disable} counter={counter} />
         </div>
       )}
     </div>

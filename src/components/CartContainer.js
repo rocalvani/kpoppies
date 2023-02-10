@@ -12,8 +12,10 @@ const CartContainer = () => {
         <NotFound />
       ) : (
         <div className="main__cart">
+          <div className="main__cart--container">
           <CartItemList cart={cart} />
-          <InfoContainer />
+          <InfoContainer /> 
+          </div>
         </div>
       )}
     </section>
