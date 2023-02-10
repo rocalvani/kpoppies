@@ -4,7 +4,7 @@ Kpoppies es un simulador e-commerce de venta de álbums del género kpop, que ut
 
 ## Deploy
 
-[kpoppies deploy](https://oritsuru.netlify.app)
+[kpoppies deploy](https://kpoppies.vercel.app/)
 
 ## Descripción
 
